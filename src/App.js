@@ -8,11 +8,7 @@ function App() {
   useEffect(() => {
     const fetch = async () => {
       let result = await axios.get(
-        "https://4ac2-37-145-175-85.eu.ngrok.io/api/categories/", {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-          }
-        }
+        "https://4ac2-37-145-175-85.eu.ngrok.io/api/categories/"
       );
       console.log(result)
    //   setCategories(result)
