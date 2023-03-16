@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  let [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      let result = await axios.get(
+        "https://4ac2-37-145-175-85.eu.ngrok.io/api/categories/", {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          }
+        }
+      );
+      console.log(result)
+   //   setCategories(result)
+    };
+    fetch();
+  }, []);
+  return <div className="App">Hello World</div>;
 }
 
 export default App;
